@@ -65,7 +65,7 @@
 
                      <div class="col-md-4 status">
                         <h5>$ <span id="subtotal">1,278</span></h5>
-                        <h5>$0</h5>
+                        <h5>$ <span id="tax">0</span></h5>
                         <h5>$ <span id="total">1,278</span></h5>
                      </div>
                   </div>
@@ -95,13 +95,8 @@ phonePlusBtn.addEventListener("click", function(){
 const totalPrice = totalItem * 1219;
 
 document.getElementById("currentPrice").innerText = totalPrice
-
-// subtotal plus event handler
-
-const subtotal = document.getElementById("subtotal").innerText;
-const subtotalNumber = parseFloat(subtotal);
-const subtotalPlus = subtotalNumber + totalPrice;
-document.getElementById("subtotal").innerText = subtotalPlus;
+getSubtotal();
+getTotal();
 
 })
 
@@ -121,6 +116,8 @@ const item = document.getElementById("item").value;
 const totalPrice = totalItem * 1219;
 
 document.getElementById("currentPrice").innerText = totalPrice
+getSubtotal();
+getTotal();
 
 })
 
@@ -139,6 +136,8 @@ casePlusBtn.addEventListener("click", function(){
 const totalPrice = totalItem * 59;
 
 document.getElementById("phoneCasePrice").innerText = totalPrice
+getSubtotal();
+getTotal();
 
 })
 
@@ -157,9 +156,21 @@ const phoneCase = document.getElementById("phoneCase").value;
 const totalPrice = totalItem * 59;
 
 document.getElementById("phoneCasePrice").innerText = totalPrice
-
+getSubtotal();
+getTotal();
 })
 
+// subtotal plus event handler
+function getSubtotal(){
+const phonePrice = document.getElementById("currentPrice").innerText;
+const casePrice = document.getElementById("phoneCasePrice").innerText;
+document.getElementById("subtotal").innerText = parseInt(phonePrice) + parseInt(casePrice);
+}
+function getTotal(){
+const subtotal = document.getElementById("subtotal").innerText;
+const tax = document.getElementById("tax").innerText;
+document.getElementById("total").innerText = parseInt(subtotal) + parseInt(tax);
+}
    </script>
 </body>
 
