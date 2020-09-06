@@ -100,7 +100,6 @@ getTotal();
 
 })
 
-
 //phone minus button event handler
 
 const phoneMinusBtn = document.getElementById("phoneMinus");
@@ -160,17 +159,20 @@ getSubtotal();
 getTotal();
 })
 
-// subtotal plus event handler
+// subtotal event function
 function getSubtotal(){
 const phonePrice = document.getElementById("currentPrice").innerText;
 const casePrice = document.getElementById("phoneCasePrice").innerText;
 document.getElementById("subtotal").innerText = parseInt(phonePrice) + parseInt(casePrice);
 }
+
+// total event function 
 function getTotal(){
 const subtotal = document.getElementById("subtotal").innerText;
 const tax = document.getElementById("tax").innerText;
 document.getElementById("total").innerText = parseInt(subtotal) + parseInt(tax);
 }
+
    </script>
 </body>
 
